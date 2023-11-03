@@ -34,4 +34,5 @@ public class Station {
         this.maxPeopleCapacity = maxPeopleCapacity;
         this.isBooked = false;
     }
+    
 }

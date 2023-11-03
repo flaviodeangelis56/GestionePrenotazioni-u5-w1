@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Random;
 
 @Entity
 @Table(name = "users")
@@ -21,4 +22,12 @@ public class User {
     private String email;
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Reservation> userReservations;
+
+    public User(String username, String name, String surname, String email) {
+        this.id = new Random().nextLong(1000000000000L, 10000000000000L);
+        this.username = username;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+    }
 }

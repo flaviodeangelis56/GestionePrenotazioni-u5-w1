@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 @Entity
 @Table(name = "reservations")
@@ -23,4 +24,10 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    public Reservation(LocalDate dayOfReservation) {
+        this.id = new Random().nextLong(1000000000000L, 10000000000000L);
+        this.dayOfReservation = dayOfReservation;
+        this.dayEndReservation = dayOfReservation.plusDays(1);
+    }
 }
